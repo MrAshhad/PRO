@@ -68,8 +68,10 @@
                             <a href="patients.php" class="dropdown-item">Patients</a>
                         </div>
                     </div>
-                    <a href="add-user.php" class="nav-item nav-link"><i class="fa fa-th me-2"></i>ADD USERS</a>
-                    <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
+                    <a href="add-user.php" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Add admin</a>
+                    <a href="add-doctor.php" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Add Doctors</a>
+                    <a href="add-patient.php" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Add patients</a>
+                    <a href="form.php" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
                     <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
                     <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
                     <div class="nav-item dropdown">
