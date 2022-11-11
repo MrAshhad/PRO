@@ -1,14 +1,7 @@
 <?php
-
 include "sidebar.php";
 include "navbar.php";
-
-
-
 ?>
-
-
-
 <!-- Form Start -->
 <div class="container-fluid pt-4 px-4">
     <div class="row g-4">
@@ -16,57 +9,26 @@ include "navbar.php";
             <div class="bg-secondary rounded h-100 p-4">
                 <h6 class="mb-4">Add Users</h6>
                 <?php
-            // ini_set('display_errors', 0);
-
-
-            // if(isset($_POST["submit"]))
-            // {
-            // $user_fname = $_POST["fname"];
-            // $user_email = $_POST["email"];
-            // $user_name = $_POST["uname"];
-            // $user_password = $_POST["pwd"];
-            // $user_role = $_POST["role"];
-
-            // include "config.php";
-
-            // $query = "SELECT * from `user` WHERE `username` = '{$user_name}'";
-
-            // $result = mysqli_query($conn,$query);
-
-            // if(mysqli_num_rows($result)>0)
-            // {
-            //     echo "user already exist";
-
-            // }
-            // else
-            // {
-            //     $conn = mysqli_connect("localhost","root","","care");
-
-            //     $query1 = "INSERT INTO `user`(`fullname`, `username`, `email`, `password`, `role`) VALUES ('{$user_fname}','{$user_name}','{$user_email}','{$user_password}','{$user_role}');";
-
-            //     mysqli_query($conn,$query1);
-
-            //     header("location:http://localhost/eproject/admin/admins.php");
-
-            // }
-            // }
-
-
-        
-      
-
-
-
-
-
-
-            ?>
-
-
-
-
-
-                <form action="saveuser.php" method="POST">
+                if (isset($_POST["submit"])) {
+                    $user_fname = $_POST["fname"];
+                    $user_email = $_POST["email"];
+                    $user_name = $_POST["uname"];
+                    $user_password = $_POST["pwd"];
+                    $user_role = $_POST["role"];
+                    include "config.php";
+                    $query = "SELECT * from `user` WHERE `email` = '{$user_email}'";
+                    $result = mysqli_query($conn, $query);
+                    if (mysqli_num_rows($result) > 0) {
+                        echo "user already exist";
+                    } else {
+                        include "config.php";
+                        $query1 = "INSERT INTO `user`(`fullname`, `username`, `email`, `password`, `role`) VALUES ('{$user_fname}','{$user_name}','{$user_email}','{$user_password}','{$user_role}');";
+                        mysqli_query($conn, $query1);
+                        header("location:http://localhost/eproject/admin/admins.php");
+                    }
+                }
+                ?>
+                <form action="<?php $_SERVER["PHP_SELF"] ?>" method="POST">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Full Name</label>
                         <input type="txt" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="fname">
@@ -86,7 +48,7 @@ include "navbar.php";
                         <input type="password" class="form-control" id="exampleInputPassword1" name="pwd">
                     </div>
                     <fieldset class="row mb-3">
-                        <legend class="col-form-label col-sm-2 pt-0" >Role</legend>
+                        <legend class="col-form-label col-sm-2 pt-0">Role</legend>
                         <div class="col-sm-10" name="role">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="1">
@@ -95,7 +57,7 @@ include "navbar.php";
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="0"  checked>
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="0" checked>
                                 <label class="form-check-label" for="gridRadios2">
                                     User
                                 </label>

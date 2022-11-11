@@ -3,7 +3,7 @@
 include "sidebar.php";
 include "navbar.php";
 include "config.php";
-$query = "SELECT * FROM `user`";
+$query = "SELECT * FROM `user`;";
 $result = mysqli_query($conn, $query);
 if (mysqli_num_rows($result) > 0) {
 
@@ -25,7 +25,6 @@ if (mysqli_num_rows($result) > 0) {
                             <th scope="col">Full Name</th>
                             <th scope="col">User Name</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Image</th>
                             <th scope="col">Role</th>
                             <th scope="col">Action</th>
                             <th scope="col">Action</th>
@@ -41,7 +40,6 @@ if (mysqli_num_rows($result) > 0) {
                                 <td><?php echo $row['username']; ?></td>
                                 <td><?php echo $row['email']; ?></td>
                                 <td><?php echo $row['role']; ?></td>
-                                
                                 <td><a class="btn btn-sm btn-primary" href="">Uptade</a></td>
                                 <td><a class="btn btn-sm btn-primary" href="">Delete</a></td>
                             </tr>
