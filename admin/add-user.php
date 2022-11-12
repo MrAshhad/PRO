@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include "sidebar.php";
 include "navbar.php";
 ?>
@@ -9,7 +10,33 @@ include "navbar.php";
             <div class="bg-secondary rounded h-100 p-4">
                 <h6 class="mb-4">Add Users</h6>
                 <?php
-                if (isset($_POST["submit"])) {
+                if (isset($_POST["add"])) {
+                    if (isset($_FILES["fileToUpload"])) {
+                        $error = array();
+                        $file_name = $_FILES["fileToUpload"]["name"];
+                        $file_size = $_FILES["fileToUpload"]["size"];
+                        $file_type = $_FILES["fileToUpload"]["type"];
+                        $file_tmp = $_FILES["fileToUpload"]["tmp_name"];
+                        $file_ext = explode(".", $file_name);
+                        $file_ext = end($file_ext);
+                        $file_ext = strtolower($file_ext);
+                        $extention = array("jpg", "jpeg", "png");
+
+                        if (in_array($file_ext, $extention) === false) {
+                            $error[] = "File extension must be in jpg, jpeg and png";
+                        }
+                        if ($file_size > 2097152) {
+                            $error[] = "File size must be less than 2MB";
+                        }
+                        if (empty($error) == true) {
+                            move_uploaded_file($file_tmp, "upload/".$file_name);
+                        } else {
+                            print_r($error);
+                            die();
+                        }
+                    }
+
+
                     $user_fname = $_POST["fname"];
                     $user_email = $_POST["email"];
                     $user_name = $_POST["uname"];
@@ -22,13 +49,15 @@ include "navbar.php";
                         echo "user already exist";
                     } else {
                         include "config.php";
-                        $query1 = "INSERT INTO `user`(`fullname`, `username`, `email`, `password`, `role`) VALUES ('{$user_fname}','{$user_name}','{$user_email}','{$user_password}','{$user_role}');";
+
+                     $query1 = "INSERT INTO `user`(`fullname`, `username`, `email`, `password`, `role`, `img`) VALUES ('{$user_fname}','{$user_name}','{$user_email}','{$user_password}','{$user_role}','{$file_name}');";
+
                         mysqli_query($conn, $query1);
                         header("location:http://localhost/eproject/admin/admins.php");
                     }
                 }
                 ?>
-                <form action="<?php $_SERVER["PHP_SELF"] ?>" method="POST">
+                <form action="<?php $_SERVER["PHP_SELF"] ?>" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Full Name</label>
                         <input type="txt" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="fname">
@@ -49,22 +78,26 @@ include "navbar.php";
                     </div>
                     <fieldset class="row mb-3">
                         <legend class="col-form-label col-sm-2 pt-0">Role</legend>
-                        <div class="col-sm-10" name="role">
+                        <div class="col-sm-10" name="">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="1">
+                                <input class="form-check-input" type="radio" name="role" id="gridRadios1" value="1">
                                 <label class="form-check-label" for="gridRadios1">
                                     Admin
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="0" checked>
+                                <input class="form-check-input" type="radio" name="role" id="gridRadios2" value="0" checked>
                                 <label class="form-check-label" for="gridRadios2">
                                     User
                                 </label>
                             </div>
                         </div>
                     </fieldset>
-                    <button type="submit" class="btn btn-primary">Add</button>
+                    <div class="mb-3">
+                                <label for="formFileMultiple" class="form-label">Upload Image</label>
+                                <input class="form-control bg-dark" name="fileToUpload" type="file" id="formFileMultiple">
+                            </div>
+                    <button type="submit" name="add" class="btn btn-primary">Add</button>
                 </form>
             </div>
         </div>

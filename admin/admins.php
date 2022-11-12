@@ -26,6 +26,7 @@ if (mysqli_num_rows($result) > 0) {
                             <th scope="col">User Name</th>
                             <th scope="col">Email</th>
                             <th scope="col">Role</th>
+                            <th scope="col">Image</th>
                             <th scope="col">Action</th>
                             <th scope="col">Action</th>
                         </tr>
@@ -40,8 +41,9 @@ if (mysqli_num_rows($result) > 0) {
                                 <td><?php echo $row['username']; ?></td>
                                 <td><?php echo $row['email']; ?></td>
                                 <td><?php echo $row['role']; ?></td>
+                                <td><img src="<?php echo $row['img']; ?>" width="70px" height="70px"></td>
                                 <td><a class="btn btn-sm btn-primary" href="">Uptade</a></td>
-                                <td><a class="btn btn-sm btn-primary" href="">Delete</a></td>
+                                <td><a class="btn btn-sm btn-primary" href="deleteuser.php?id=<?php echo $row["id"];?>'">Delete</a></td>
                             </tr>
                         <?php } ?>
                     </tbody>
