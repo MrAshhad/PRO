@@ -42,8 +42,8 @@ if (mysqli_num_rows($result) > 0) {
                                 <td><?php echo $row['email']; ?></td>
                                 <td><?php echo $row['role']; ?></td>
                                 <td><img src="<?php echo $row['img']; ?>" width="70px" height="70px"></td>
-                                <td><a class="btn btn-sm btn-primary" href="">Uptade</a></td>
-                                <td><a class="btn btn-sm btn-primary" href="deleteuser.php?id=<?php echo $row["id"];?>'">Delete</a></td>
+                                <td><a class="btn btn-sm btn-primary" href="updateuser.php?id=<?php echo $row["id"];?>">Uptade</a></td>
+                                <td><a class="btn btn-sm btn-primary" href="deleteuser.php?id=<?php echo $row["id"];?>">Delete</a></td>
                             </tr>
                         <?php } ?>
                     </tbody>

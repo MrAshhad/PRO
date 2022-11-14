@@ -2,6 +2,17 @@
 ob_start();
 include "sidebar.php";
 include "navbar.php";
+
+$user_id_ = $_GET["id"];
+include "config.php";
+$Query1 = "SELECT * FROM `user` WHERE `id` = '{$user_id_}'";
+$result = mysqli_query($conn, $Query1);
+if(mysqli_num_rows($result))
+{
+    $row = mysqli_fetch_assoc($result);
+
+    
+
 ?>
 <!-- Form Start -->
 <div class="container-fluid pt-4 px-4">
@@ -9,55 +20,7 @@ include "navbar.php";
         <div class="col-sm-12 col-xl-6">
             <div class="bg-secondary rounded h-100 p-4">
                 <h6 class="mb-4">Add Users</h6>
-                <?php
-                if (isset($_POST["add"])) {
-                    if (isset($_FILES["fileToUpload"])) {
-                        $error = array();
-                        $file_name = $_FILES["fileToUpload"]["name"];
-                        $file_size = $_FILES["fileToUpload"]["size"];
-                        $file_type = $_FILES["fileToUpload"]["type"];
-                        $file_tmp = $_FILES["fileToUpload"]["tmp_name"];
-                        $file_ext = explode(".", $file_name);
-                        $file_ext = end($file_ext);
-                        $file_ext = strtolower($file_ext);
-                        $extention = array("jpg", "jpeg", "png");
-
-                        if (in_array($file_ext, $extention) === false) {
-                            $error[] = "File extension must be in jpg, jpeg and png";
-                        }
-                        if ($file_size > 2097152) {
-                            $error[] = "File size must be less than 2MB";
-                        }
-                        if (empty($error) == true) {
-                            move_uploaded_file($file_tmp, "upload/".$file_name);
-                        } else {
-                            print_r($error);
-                            die();
-                        }
-                    }
-
-
-                    $user_fname = $_POST["fname"];
-                    $user_email = $_POST["email"];
-                    $user_name = $_POST["uname"];
-                    $user_password = $_POST["pwd"];
-                    $user_role = $_POST["role"];
-                    include "config.php";
-                    $query = "SELECT * from `user` WHERE `email` = '{$user_email}'";
-                    $result = mysqli_query($conn, $query);
-                    if (mysqli_num_rows($result) > 0) {
-                        echo "user already exist";
-                    } else {
-                        include "config.php";
-
-                     $query1 = "INSERT INTO `user`(`fullname`, `username`, `email`, `password`, `role`, `img`) VALUES ('{$user_fname}','{$user_name}','{$user_email}','{$user_password}','{$user_role}','{$file_name}');";
-
-                        mysqli_query($conn, $query1);
-                        header("location:{$host}admin/admins.php");
-                    }
-                }
-                ?>
-                <form action="<?php $_SERVER["PHP_SELF"] ?>" method="POST" enctype="multipart/form-data">
+                <form action="edituser.php" method="POST">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Full Name</label>
                         <input type="txt" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="fname">
@@ -110,7 +73,7 @@ include "navbar.php";
 
 
 
-
+<?php } ?>
 
 
 

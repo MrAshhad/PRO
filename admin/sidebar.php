@@ -1,3 +1,9 @@
+<?php
+// session_start();
+// if(!isset($_SESSION["username"])){
+//     header("location:http://localhost/eproject/admin/");
+// }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,7 +52,7 @@
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-secondary navbar-dark">
                 <a href="dashboard.php" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>DarkPan</h3>
+                    <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Panel</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
