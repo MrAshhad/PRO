@@ -48,7 +48,7 @@
             $uemail = $_POST["email"];
             $upwd = $_POST["pwd"];
             include "config.php";
-            $query = "SELECT `id`,`email`,`role` FROM `user` WHERE `email` = '{$uemail}' AND `password` = '{$upwd}';";
+            $query = "SELECT `id`,`email`,`role`, `img` FROM `user` WHERE `email` = '{$uemail}' AND `password` = '{$upwd}';";
             //$query = "SELECT `user_id`,`username`,`role` FROM `user` WHERE username = '{$username}' AND password = '{$userpassword}'";
             $result = mysqli_query($conn, $query);
             if (mysqli_num_rows($result)) {
@@ -57,7 +57,7 @@
                     $_SESSION["email"] = $row["email"];
                     $_SESSION["id"] = $row["id"];
                     $_SESSION["role"] = $row["role"];
-
+                    $_SESSION["image"] = $row["img"];
                     header("location:{$host}admin/dashboard.php");
                 }
             } else {
