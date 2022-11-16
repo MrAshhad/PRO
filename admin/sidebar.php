@@ -1,8 +1,8 @@
 <?php
 session_start();
- if(!isset($_SESSION["email"])){
-     header("location:http://localhost/eproject/admin/");
- }
+if (!isset($_SESSION["email"])) {
+    header("location:http://localhost/eproject/admin/");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,8 +20,8 @@ session_start();
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet"> 
-    
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -55,14 +55,8 @@ session_start();
                     <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Panel</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
-                    <div class="position-relative">
-                        <img class="rounded-circle" src="upload/<?php echo $row['img']; ?>" alt="" style="width: 40px; height: 40px;">
-                        <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
-                    </div>
-                    <div class="ms-3">
-                        <h6 class="mb-0">Khalid</h6>
-                        <span>Doctor</span>
-                    </div>
+                   
+                    
                 </div>
                 <div class="navbar-nav w-100">
                     <a href="dashboard.php" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>

@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(isset($_SESSION['email'])){
+    header("location:http://localhost/eproject/admin/dashboard.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
