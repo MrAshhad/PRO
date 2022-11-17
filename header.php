@@ -1,3 +1,7 @@
+<?php
+ob_start();
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +17,7 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -31,9 +35,10 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 </head>
+
 <body>
- <!-- Spinner Start -->
- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-grow text-primary m-1" role="status">
             <span class="sr-only">Loading...</span>
         </div>
@@ -92,11 +97,26 @@
                     </div>
                 </div>
                 <a href="contact.php" class="nav-item nav-link">Contact</a>
-                <a href="login.php" class="nav-item nav-link">Sign-in</a>
+                <?php
+
+                //echo $_SESSION["username"];
+                if (isset($_SESSION["username"])) { ?>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><?php echo $_SESSION["username"] ?></a>
+                        <div class="dropdown-menu m-0">
+                            <a href="team.php" class="dropdown-item">Profile</a>
+                            <a href="team.php" class="dropdown-item">logout</a>
+                        </div>
+                    </div>
+                <?php
+                } else {
+
+                    echo '<a href="login.php" class="nav-item nav-link">Sign-in</a>';
+                }
+                ?>
             </div>
             <button type="button" class="btn text-dark" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
             <a href="appointment.php" class="btn btn-primary py-2 px-4 ms-3">Appointment</a>
         </div>
     </nav>
     <!-- Navbar End -->
-

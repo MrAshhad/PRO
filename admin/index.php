@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION['email'])){
-    header("location:http://localhost/eproject/admin/dashboard.php");
+    header("location:http://:82/eproject/admin/dashboard.php");
 }
 ?>
 

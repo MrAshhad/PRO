@@ -138,14 +138,15 @@ button{
             {
                 include "config.php";
 
-                echo $query1 = "INSERT INTO `patients`(`fullname`, `username`, `email`, `password`) VALUES ('{$user_ffname}','{$user_nname}','{$user_eemail}','{$user_ppwd}';)";
+                echo $query1 = "INSERT INTO `patients`(`fullname`, `username`, `email`, `password`) VALUES ('{$user_ffname}','{$user_nname}','{$user_eemail}','{$user_ppwd}');";
 
                 mysqli_query($conn,$query1);
 
-                header("location:http://localhost/eproject/");
+                header("location:http://localhost:82/eproject/");
             }
             }
             ?>
+            
     <form action="<?php $_SERVER["PHP_SELF"] ?>" method="POST">
         <h3>SignUp Here</h3>
         <label for="username">Full Name</label>
