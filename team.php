@@ -42,8 +42,8 @@
             <div class="row g-5">
                 <div class="col-lg-4 wow slideInUp" data-wow-delay="0.1s">
                     <div class="section-title bg-light rounded h-100 p-5">
-                        <h5 class="position-relative d-inline-block text-primary text-uppercase">Our Dentist</h5>
-                        <h1 class="display-6 mb-4">Meet Our Certified & Experienced Dentist</h1>
+                        <h5 class="position-relative d-inline-block text-primary text-uppercase">Our Dr</h5>
+                        <h1 class="display-6 mb-4">Meet Our Certified & Experienced Dr</h1>
                         <a href="appointment.html" class="btn btn-primary py-3 px-5">Appointment</a>
                     </div>
                 </div>
