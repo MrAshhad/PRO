@@ -7,7 +7,8 @@ session_start();
 
 <head>
     <meta charset="utf-8">
-    <title>DentCare - Dental Clinic Website Template</title>
+    <title>Life Care</title>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -78,7 +79,7 @@ session_start();
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
         <a href="index.html" class="navbar-brand p-0">
-            <h1 class="m-0 text-primary"><i class="fa fa-tooth me-2"></i>DentCare</h1>
+            <h1 class="m-0 text-primary"><i class="fa fa-heartbeat" style="font-size:48px;color:#0275d8 "></i>Life Care</h1>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
