@@ -30,7 +30,13 @@ include "navbar.php";
                 //     }
                 // }
                 if(isset($_POST["addd"])){
-                    $hname = $_POST[""];
+                    $hname = $_POST["hname"];
+                    $hname = $_POST["hcity"];
+                    $hname = $_POST["hemail"];
+                    $hname = $_POST["hph"];
+                    $hname = $_POST["hadd"];
+                    include "config.php";
+                    $query = "SELECT * FROM WHERE ";
                 }
                 ?>
                 <form action="<?php $_SERVER["PHP_SELF"] ?>" method="POST" enctype="multipart/form-data">
@@ -39,8 +45,8 @@ include "navbar.php";
                         <input type="txt" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="hname">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">City</label>
-                        <input type="txt" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="hcity">
+                        <label for="exampleInputEmail1" class="form-label">Address</label>
+                        <input type="txt" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="hadd">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email</label>
@@ -53,7 +59,7 @@ include "navbar.php";
                         <input type="password" class="form-control" id="exampleInputPassword1" name="hph">
                     </div>
                     <label for="exampleInputEmail1" class="form-label">Select City</label>
-                            <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm example">
+                            <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm example" name="hcity">
                                 <option selected>Open this to select city</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
