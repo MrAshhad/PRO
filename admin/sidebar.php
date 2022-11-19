@@ -66,6 +66,7 @@ if (!isset($_SESSION["email"])) {
                             <a href="admins.php" class="dropdown-item">Admin</a>
                             <a href="doctors.php" class="dropdown-item">Doctors</a>
                             <a href="patients.php" class="dropdown-item">Patients</a>
+                            <a href="hospital.php" class="dropdown-item">Hospitals</a>
                         </div>
                     </div>
                     <a href="add-user.php" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Add admin</a>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2022 at 06:54 AM
+-- Generation Time: Nov 19, 2022 at 05:51 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -77,8 +77,18 @@ CREATE TABLE `doctors` (
 CREATE TABLE `hospital` (
   `id` int(11) NOT NULL,
   `hapitalname` varchar(100) NOT NULL,
-  `city` int(11) NOT NULL
+  `city` int(11) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `phone` int(11) NOT NULL,
+  `address` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `hospital`
+--
+
+INSERT INTO `hospital` (`id`, `hapitalname`, `city`, `email`, `phone`, `address`) VALUES
+(1, 'aaa', 0, 'aaa@gmail.com', 2147483647, 'addyasat');
 
 -- --------------------------------------------------------
 
@@ -94,6 +104,14 @@ CREATE TABLE `patients` (
   `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `patients`
+--
+
+INSERT INTO `patients` (`id`, `fullname`, `username`, `email`, `password`) VALUES
+(1, 'ASHHAD', '12ash', 'abc@gmail.com', '12345678'),
+(2, 'ashhad khan', '12ash', 'zack@gmail.com', '12345678');
+
 -- --------------------------------------------------------
 
 --
@@ -106,9 +124,17 @@ CREATE TABLE `user` (
   `username` varchar(10) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(10) NOT NULL,
-  `img` varchar(100) NOT NULL,
-  `role` int(11) NOT NULL
+  `role` int(11) NOT NULL,
+  `img` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `fullname`, `username`, `email`, `password`, `role`, `img`) VALUES
+(19, 'catubafob', 'kelefuq', 'kavajyfy@mailinator.com', 'Pa$$w0rd!', 0, 'images.jpg'),
+(21, 'adan', 'dyfaficuje', 'shahmeerbaig085@gmail.com', '123456', 0, 'images.jpg');
 
 --
 -- Indexes for dumped tables
@@ -176,19 +202,19 @@ ALTER TABLE `doctors`
 -- AUTO_INCREMENT for table `hospital`
 --
 ALTER TABLE `hospital`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

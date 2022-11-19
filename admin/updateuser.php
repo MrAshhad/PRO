@@ -10,6 +10,7 @@ $result = mysqli_query($conn, $Query1);
 if(mysqli_num_rows($result))
 {
     $row = mysqli_fetch_assoc($result);
+    print_r($row);  
 
     
 
