@@ -17,8 +17,9 @@ include "navbar.php";
                     $hemail = $_POST["hemail"];
                     $hphone = $_POST["hph"];
                     $haddress = $_POST["hadd"];
+
                     include "config.php";
-                    $query = "SELECT * FROM WHERE `email` = '{$hemail}';";
+                 $query = "SELECT *  FROM hospital WHERE `email` = '{$hemail}';";
                     $result = mysqli_query($conn, $query);
                          if (mysqli_num_rows($result) > 0) {
                             echo "Hospital already exist";
@@ -26,7 +27,7 @@ include "navbar.php";
                              include "config.php";
                              $query1 = "INSERT INTO `hospital`(`hapitalname`, `city`, `email`, `phone`, `address`) VALUES ('{$hname}','{$hcity}','{$hemail}','{$hphone}','{$haddress}');";
                              mysqli_query($conn, $query1);
-                            header("location:");
+                            header("location:http://localhost:82/eproject/admin/patients.php");
                         }
                 }
                 ?>
@@ -50,13 +51,21 @@ include "navbar.php";
                         <input type="password" class="form-control" id="exampleInputPassword1" name="hph">
                     </div>
                     <label for="exampleInputEmail1" class="form-label">Select City</label>
+                    <?php
+                     include "config.php";
+                     $query1 = "SELECT *  FROM `city`";
+                        $result1 = mysqli_query($conn, $query1);
+                             if (mysqli_num_rows($result1) > 0) {
+                             while($row1 = mysqli_fetch_assoc($result1)){
+
+                            
+                    
+                    ?>
                             <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm example" name="hcity">
                                 <option selected>Open this to select city</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <option  value="<?php echo $row1['id']; ?>"><?php echo $row1['cityname']; ?></option>
                             </select>
-                   
+                             <?php }} ?>
                     <button type="submit" name="addd" class="btn btn-primary">Add</button>
                 </form>
             </div>

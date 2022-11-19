@@ -10,7 +10,7 @@ $result = mysqli_query($conn, $Query1);
 if(mysqli_num_rows($result))
 {
     $row = mysqli_fetch_assoc($result);
-    print_r($row);  
+    
 
     
 
@@ -24,33 +24,33 @@ if(mysqli_num_rows($result))
                 <form action="edituser.php" method="POST">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Full Name</label>
-                        <input type="txt" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="fname">
+                        <input type="txt" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="fname"  value="<?php echo $row['fullname']; ?>">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">User Name</label>
-                        <input type="txt" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="uname">
+                        <input type="txt" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="uname"  value="<?php echo $row['username']; ?>">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email"  value="<?php echo $row['email']; ?>">
                         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" name="pwd">
+                        <input type="password" class="form-control" id="exampleInputPassword1" name="pwd"  value="<?php echo $row['password']; ?>">
                     </div>
                     <fieldset class="row mb-3">
                         <legend class="col-form-label col-sm-2 pt-0">Role</legend>
                         <div class="col-sm-10" name="">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="role" id="gridRadios1" value="1">
+                                <input class="form-check-input" type="radio" name="role" id="gridRadios1" value="1"  value="<?php echo $row['role']; ?>">
                                 <label class="form-check-label" for="gridRadios1">
                                     Admin
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="role" id="gridRadios2" value="0" checked>
+                                <input class="form-check-input" type="radio" name="role" id="gridRadios2" value="0" checked   value="<?php echo $row['role']; ?>">
                                 <label class="form-check-label" for="gridRadios2">
                                     User
                                 </label>
@@ -60,6 +60,8 @@ if(mysqli_num_rows($result))
                     <div class="mb-3">
                                 <label for="formFileMultiple" class="form-label">Upload Image</label>
                                 <input class="form-control bg-dark" name="fileToUpload" type="file" id="formFileMultiple">
+                                <div id="emailHelp" class="form-text">Select the image again.
+                        </div>
                             </div>
                     <button type="submit" name="add" class="btn btn-primary">Add</button>
                 </form>
