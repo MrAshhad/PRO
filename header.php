@@ -92,7 +92,7 @@ session_start();
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu m-0">
-                        <a href="team.php" class="dropdown-item">Our Doctor</a>
+                        <a href="doctors.php" class="dropdown-item">Our Doctor</a>
                         <a href="testimonial.php" class="dropdown-item">Testimonial</a>
                         <a href="appointment.php" class="dropdown-item">Appointment</a>
                     </div>
@@ -105,8 +105,8 @@ session_start();
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><?php echo $_SESSION["username"] ?></a>
                         <div class="dropdown-menu m-0">
-                            <a href="team.php" class="dropdown-item">Profile</a>
-                            <a href="team.php" class="dropdown-item">logout</a>
+                            <a href="" class="dropdown-item">Profile</a>
+                            <a href="logout.php" class="dropdown-item">logout</a>
                         </div>
                     </div>
                 <?php

@@ -27,28 +27,28 @@ include "navbar.php";
                              include "config.php";
                              $query1 = "INSERT INTO `hospital`(`hapitalname`, `city`, `email`, `phone`, `address`) VALUES ('{$hname}','{$hcity}','{$hemail}','{$hphone}','{$haddress}');";
                              mysqli_query($conn, $query1);
-                            header("location:http://localhost:82/eproject/admin/patients.php");
+                            header("location:{$host}admin/hospital.php");
                         }
                 }
                 ?>
                 <form action="<?php $_SERVER["PHP_SELF"] ?>" method="POST">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Hospital Name</label>
-                        <input type="txt" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="hname">
+                        <input type="txt" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="hname" autocomplete="off">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Address</label>
-                        <input type="txt" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="hadd">
+                        <input type="txt" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="hadd" autocomplete="off">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="hemail">
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="hemail" autocomplete="off">
                         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Phone</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" name="hph">
+                        <input type="txt" class="form-control" id="exampleInputPassword1" name="hph" autocomplete="off">
                     </div>
                     <label for="exampleInputEmail1" class="form-label">Select City</label>
                     <?php

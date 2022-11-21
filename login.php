@@ -144,7 +144,7 @@
                     $_SESSION["username"] = $row["username"];
                     $_SESSION["id"] = $row["id"];
 
-                    header("location:http://localhost:82/eproject/");
+                    header("location:{$host}");
                 }
             } else {
                 echo '<script>alert("invalid username and password")</script>';

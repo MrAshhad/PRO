@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2022 at 05:51 AM
+-- Generation Time: Nov 21, 2022 at 08:06 PM
 -- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -49,6 +49,13 @@ CREATE TABLE `city` (
   `hospitalid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `city`
+--
+
+INSERT INTO `city` (`id`, `cityname`, `hospitalid`) VALUES
+(1, 'Lahore', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -61,12 +68,19 @@ CREATE TABLE `doctors` (
   `email` varchar(100) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `img` int(100) NOT NULL,
+  `img` varchar(100) NOT NULL,
   `specialization` varchar(100) NOT NULL,
-  `hospital` int(11) NOT NULL,
-  `city` int(11) NOT NULL,
-  `appointments` varchar(100) NOT NULL
+  `hospital` varchar(100) NOT NULL,
+  `city` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `doctors`
+--
+
+INSERT INTO `doctors` (`id`, `fullname`, `email`, `username`, `password`, `img`, `specialization`, `hospital`, `city`) VALUES
+(1, '{$user_ffname}', '{$user_eemail}', '{$user_nname}', '{$user_ppassword}', '0', '{$user_spe}', '{$user_hhos}', '{$user_city}'),
+(2, 'lewejav', 'gobuseto@mailinator.com', 'vohuke', 'Pa$$w0rd!', '(1).jpg', '', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -77,9 +91,9 @@ CREATE TABLE `doctors` (
 CREATE TABLE `hospital` (
   `id` int(11) NOT NULL,
   `hapitalname` varchar(100) NOT NULL,
-  `city` int(11) NOT NULL,
+  `city` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `phone` int(11) NOT NULL,
+  `phone` bigint(11) NOT NULL,
   `address` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -88,7 +102,7 @@ CREATE TABLE `hospital` (
 --
 
 INSERT INTO `hospital` (`id`, `hapitalname`, `city`, `email`, `phone`, `address`) VALUES
-(1, 'aaa', 0, 'aaa@gmail.com', 2147483647, 'addyasat');
+(1, 'leve@mailinator.com', '1', 'zequzim@mailinator.com', 1, 'xolydeton@mailinator.com');
 
 -- --------------------------------------------------------
 
@@ -133,8 +147,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `fullname`, `username`, `email`, `password`, `role`, `img`) VALUES
-(19, 'catubafob', 'kelefuq', 'kavajyfy@mailinator.com', 'Pa$$w0rd!', 0, 'images.jpg'),
-(21, 'adan', 'dyfaficuje', 'shahmeerbaig085@gmail.com', '123456', 0, 'images.jpg');
+(19, 'catubafob', 'kelefuq', 'kavajyfy@mailinator.com', 'Pa$$w0rd!', 0, 'images.jpg');
 
 --
 -- Indexes for dumped tables
@@ -190,19 +203,19 @@ ALTER TABLE `appointments`
 -- AUTO_INCREMENT for table `city`
 --
 ALTER TABLE `city`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `doctors`
 --
 ALTER TABLE `doctors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `hospital`
 --
 ALTER TABLE `hospital`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `patients`

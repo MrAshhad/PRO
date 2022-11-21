@@ -3,7 +3,7 @@
 include "sidebar.php";
 include "navbar.php";
 include "config.php";
-$query = "SELECT * FROM `hospital`;";
+$query = "SELECT * FROM `hospital`";
 $result = mysqli_query($conn, $query);
 if (mysqli_num_rows($result) > 0) {
 

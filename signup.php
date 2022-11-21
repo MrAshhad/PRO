@@ -142,7 +142,7 @@ button{
 
                 mysqli_query($conn,$query1);
 
-                header("location:http://localhost/eproject/");
+                header("location:{$host}");
             }
             }
             ?>
