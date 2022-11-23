@@ -71,6 +71,27 @@ if(isset($_SESSION['email'])){
                 echo '<script>alert("invalid username and password")</script>';
             }
         }
+
+
+        if (isset($_POST["login"])) {
+            $uuemail = $_POST["email"];
+            $uupwd = $_POST["pwd"];
+            include "config.php";
+            $query = "SELECT `id`,`email`,`img` FROM `doctors` WHERE `email` = '{$uuemail}' AND `password` = '{$uupwd}';";
+            //$query = "SELECT `user_id`,`username`,`role` FROM `user` WHERE username = '{$username}' AND password = '{$userpassword}'";
+            $result = mysqli_query($conn, $query);
+            if (mysqli_num_rows($result)) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    session_start();
+                    $_SESSION["email"] = $row["email"];
+                    $_SESSION["id"] = $row["id"];
+                    $_SESSION["image"] = $row["img"];
+                    header("location:{$host}admin/dashboard.php");
+                }
+            } else {
+                echo '<script>alert("invalid username and password")</script>';
+            }
+        }
         ?>
         <div class="container-fluid">
             <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
@@ -84,30 +105,13 @@ if(isset($_SESSION['email'])){
                         </div>
                         <form action="" method="POST">
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
+                            <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com" autocapitalize="off">
                             <label for="floatingInput">Email address</label>
                         </div>
                         <div class="form-floating mb-4">
-                            <input type="password" class="form-control" id="floatingPassword" name="pwd" placeholder="Password">
+                            <input type="password" class="form-control" id="floatingPassword" name="pwd" placeholder="Password" autocapitalize="off">
                             <label for="floatingPassword">Password</label>
                         </div>
-                        <!-- <fieldset class="row mb-3">
-                            <legend class="col-form-label col-sm-2 pt-0">Role</legend>
-                            <div class="col-sm-10" name="">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="role" id="gridRadios1" value="1">
-                                    <label class="form-check-label" for="gridRadios1">
-                                        Admin
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="role" id="gridRadios2" value="0" checked>
-                                    <label class="form-check-label" for="gridRadios2">
-                                        User
-                                    </label>
-                                </div>
-                            </div>
-                        </fieldset> -->
                         <button type="submit" name="login" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
                         </form>
                     </div>

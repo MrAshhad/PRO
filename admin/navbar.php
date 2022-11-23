@@ -93,6 +93,24 @@
                             <?php } ?>
                         
                         </a>
+
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <?php
+                            $emm = $_SESSION['email'];
+                            
+                        
+                            include "config.php";
+                           $query = "SELECT `img` FROM `doctors` WHERE email = '{$emm}'";
+                            $result = mysqli_query($conn,$query);
+                            if(mysqli_num_rows($result) > 0) {
+                         $row = mysqli_fetch_assoc($result) 
+                    
+                           ?>
+                            <img class="rounded-circle me-lg-2" src="doctor/<?php echo $row['img']; ?>" alt="" style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex"><?php echo $emm; ?></span>
+                            <?php } ?>
+                        
+                        </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="logout.php" class="dropdown-item">Log Out</a>
                         </div>

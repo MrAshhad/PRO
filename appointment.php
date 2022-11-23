@@ -52,28 +52,54 @@
                         <form>
                             <div class="row g-3">
                                 <div class="col-12 col-sm-6">
+
+
+                                    <?php
+                                    include "config.php";
+                                    $query1 = "SELECT * FROM `hospital`;";
+                                    $result1 = mysqli_query($conn,$query1);
+                                    if(mysqli_num_rows($result1)>0){
+                                        while($row1 = mysqli_fetch_assoc($result1)){
+
+                                        
+                                    ?>                           
                                     <select class="form-select bg-light border-0" style="height: 55px;">
-                                        <option selected>Select Hospital</option>
-                                        <option value="1">Abbasi Hospital</option>
-                                        <option value="2">Agha Khan Hospital</option>
-                                        <option value="3">Tabba Hospital</option>
+                                        <option>Select Hospital</option>
+                                        <option value="<?php echo $row1['id']; ?>"><?php echo $row1['hapitalname']; ?></option>
                                     </select>
+                                    <?php } } ?>
                                 </div>
                                 <div class="col-12 col-sm-6">
+                                <?php
+                                    include "config.php";
+                                    $query2 = "SELECT * FROM `doctors`;";
+                                    $result2 = mysqli_query($conn,$query2);
+                                    if(mysqli_num_rows($result2)>0){
+                                        while($row2 = mysqli_fetch_assoc($result2)){
+
+                                        
+                                    ?>                           
                                     <select class="form-select bg-light border-0" style="height: 55px;">
-                                        <option selected>Select Doctor</option>
-                                        <option value="1">Siraj</option>
-                                        <option value="2">Ashhad</option>
-                                        <option value="3">Waris</option>
+                                        <option>Select Doctor</option>
+                                        <option value="<?php echo $row2['id']; ?>">Dr.<?php echo $row2['fullname']; ?></option>
                                     </select>
+                                    <?php } } ?>
                                 </div>
                                 <div class="col-12 col-sm-6">
+                                <?php
+                                    include "config.php";
+                                    $query3 = "SELECT * FROM `city`;";
+                                    $result3 = mysqli_query($conn,$query2);
+                                    if(mysqli_num_rows($result3)>0){
+                                        while($row3 = mysqli_fetch_assoc($result3)){
+
+                                        
+                                    ?>                           
                                     <select class="form-select bg-light border-0" style="height: 55px;">
-                                        <option selected>Select City</option>
-                                        <option value="1">Karachi</option>
-                                        <option value="2">Hyderabad</option>
-                                        <option value="3">Lahore</option>
+                                        <option>Select City</option>
+                                        <option value="<?php echo $row3['id']; ?>">Dr.<?php echo $row3['cityname']; ?></option>
                                     </select>
+                                    <?php } } ?>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <input type="text" class="form-control bg-light border-0" placeholder="Your Name" style="height: 55px;">

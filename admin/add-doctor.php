@@ -43,14 +43,12 @@ if (isset($_POST["add"])) {
     $user_city = $_POST["hcity"];
     include "config.php";
     $query = "SELECT * FROM `doctors` WHERE `email` = '{$user_eemail}';";
-    //$query = "SELECT * from `user` WHERE `email` = '{$user_email}'";
     $result = mysqli_query($conn, $query);
     if (mysqli_num_rows($result) > 0) {
         echo "Doctor already exist";
     } else {
         include "config.php";
         $query1 = "INSERT INTO `doctors`(`fullname`, `email`, `username`, `password`, `img`, `specialization`, `hospital`, `city`) VALUES ('{$user_ffname}','{$user_eemail}','{$user_nname}','{$user_ppassword}','{$file_name}','{$user_spe}','{$user_hhos}','{$user_city}')";
-        //$query1 = "INSERT INTO `user`(`fullname`, `username`, `email`, `password`, `role`, `img`) VALUES ('{$user_fname}','{$user_name}','{$user_email}','{$user_password}','{$user_role}','{$file_name}');";
 
         mysqli_query($conn, $query1);
         header("location:{$host}admin/doctors.php");
@@ -88,19 +86,19 @@ if (isset($_POST["add"])) {
                         <legend class="col-form-label col-sm-2 pt-0">Specilization</legend>
                         <div class="col-sm-10">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" name="specilization">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Child Specialist" name="specilization">
                                 <label class="form-check-label" for="gridRadios1">
                                     Child Specialist
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" name="specilization">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value=" Heart specialist" name="specilization">
                                 <label class="form-check-label" for="gridRadios2">
                                     Heart specialist
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" name="specilization">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Eye specialist" name="specilization">
                                 <label class="form-check-label" for="gridRadios2">
                                     Eye specialist
                                 </label>

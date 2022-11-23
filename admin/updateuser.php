@@ -40,23 +40,6 @@ if(mysqli_num_rows($result))
                         <label for="exampleInputPassword1" class="form-label">Password</label>
                         <input type="password" class="form-control" id="exampleInputPassword1" name="pwd"  value="<?php echo $row['password']; ?>">
                     </div>
-                    <fieldset class="row mb-3">
-                        <legend class="col-form-label col-sm-2 pt-0">Role</legend>
-                        <div class="col-sm-10" name="">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="role" id="gridRadios1" value="1"  value="<?php echo $row['role']; ?>">
-                                <label class="form-check-label" for="gridRadios1">
-                                    Admin
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="role" id="gridRadios2" value="0" checked   value="<?php echo $row['role']; ?>">
-                                <label class="form-check-label" for="gridRadios2">
-                                    User
-                                </label>
-                            </div>
-                        </div>
-                    </fieldset>
                     <div class="mb-3">
                                 <label for="formFileMultiple" class="form-label">Upload Image</label>
                                 <input class="form-control bg-dark" name="fileToUpload" type="file" id="formFileMultiple">
